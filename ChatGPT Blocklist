@@ -1,0 +1,65 @@
+!--------------------------------------------------
+! Facebook Cleaner - English Only
+! Author: Gemini (Modified by ChatGPT)
+! Last Updated: 2025-09-06
+!--------------------------------------------------
+!✅ Purpose: Hide Reels, Ads, Suggested posts, People/Pages/Groups suggestions
+!✅ Compatible with: uBlock Origin / AdGuard
+!--------------------------------------------------
+
+!##################################################
+!### Desktop Version (www.facebook.com)
+!##################################################
+
+! 🛑 Hide Ads (Sponsored)
+www.facebook.com##div[data-pagelet*="FeedUnit_"] a[href*="/ads/about-this-ad/"]:upward(div[data-pagelet*="FeedUnit_"])
+www.facebook.com##div[data-pagelet="RightRail"] div[data-pagelet="pagelet_ego_pane"]
+www.facebook.com##div:has(span:has-text(/Sponsored/i))
+
+! 🎬 Hide Reels
+www.facebook.com##a[href*="/reel/"]:upward(div)
+www.facebook.com##[aria-label="Reels"]:upward(2)
+www.facebook.com##div:has(h3:has-text(/Reels/))
+
+! 📌 Hide "Suggested for you"
+www.facebook.com##div:has(span:has-text(/Suggested for you/))
+
+! 👥 Hide "People You May Know" / "Add Friend"
+www.facebook.com##div:has(span:has-text(/Add friend/))
+
+! ➕ Hide "Follow" suggestions
+www.facebook.com##div:has(span:has-text(/Follow/))
+
+! 📂 Hide Suggested groups
+www.facebook.com##div:has(span:has-text(/Groups/))
+
+! 📄 Hide Suggested pages
+www.facebook.com##div:has(span:has-text(/Pages/))
+
+!##################################################
+!### Mobile Version (m.facebook.com)
+!##################################################
+
+! 🛑 Hide Ads (Sponsored)
+m.facebook.com##div:has(span:has-text(/Sponsored/i))
+m.facebook.com##article:has(span:has-text(/Sponsored/i))
+
+! 🎬 Hide Reels
+m.facebook.com##a[href*="/reel/"]:upward(div)
+m.facebook.com##[aria-label="Reels"]:upward(2)
+m.facebook.com##div:has(h3:has-text(/Reels/))
+
+! 📌 Hide "Suggested for you"
+m.facebook.com##div:has(span:has-text(/Suggested for you/))
+
+! 👥 Hide "People You May Know"
+m.facebook.com##div:has(span:has-text(/Add friend/))
+
+! ➕ Hide "Follow" suggestions
+m.facebook.com##div:has(span:has-text(/Follow/))
+
+! 📂 Hide Suggested groups
+m.facebook.com##div:has(span:has-text(/Groups/))
+
+! 📄 Hide Suggested pages
+m.facebook.com##div:has(span:has-text(/Pages/))
