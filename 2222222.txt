@@ -1,5 +1,6 @@
 !--------------------------------------------------
 ! Facebook Feed Cleaner - By Gemini (Organized)
+! Includes Sponsored Posts Blocker
 ! Last Updated: 2025-09-06
 !--------------------------------------------------
 
@@ -7,6 +8,10 @@
 !##################################################
 !### 🖥️ Desktop Version (www.facebook.com) ###
 !##################################################
+
+! Hide Sponsored Posts / Ads
+www.facebook.com##div[data-pagelet*="FeedUnit_"] span > span > a[href*="/ads/about-this-ad/"]:upward(div[data-pagelet*="FeedUnit_"])
+www.facebook.com##div[data-pagelet="RightRail"] div[data-pagelet="pagelet_ego_pane"]
 
 ! Hide Reels and Short Videos section
 www.facebook.com##[aria-label="reel"]:upward(2)
@@ -34,6 +39,10 @@ www.facebook.com##[aria-posinset] [aria-label="Suggested pages"]:upward([aria-po
 !##################################################
 !### 📱 Mobile Version (m.facebook.com) ###
 !##################################################
+
+! Hide Sponsored Posts / Ads
+m.facebook.com##div[data-ft*="\"page_id\""] > div > div > span:has-text(/Sponsored|مُموَّل/i):upward(div[data-ft*="\"page_id\""])
+m.facebook.com##article[data-ft*="\"page_id\""] > div > div > span:has-text(/Sponsored|مُموَّل/i):upward(article[data-ft*="\"page_id\""])
 
 ! Hide Reels and Short Videos section
 m.facebook.com##[aria-label="reel"]:upward(2)
