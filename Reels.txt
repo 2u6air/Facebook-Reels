@@ -3,7 +3,9 @@ https://m.facebook.com/reel
 
 www.facebook.com##[aria-label="reel"]:upward(2)
 www.facebook.com##span:has-text('Add friend'):upward(14)
-www.facebook.com##.x1ja2u2z.x1n2onr6.x9f619 > .xh8yej3.x1n2onr6.x78zum5 > .xquyuldx9du1.xdney7k.x1qpq9i9.x2bj2ny.x1ja2u2z.x1n2onr6.x9f619 > div > div > div > div:has-text(Follow)
+www.facebook.com##.x1ja2u2z.x1n2onr6.x9f619 > .xh8yej3.x1n2onr6.x78zum5 > .xquyuldx9du1.xdney7k.x1qpq9i9.x2bj2ny.x1ja2tee
+.a
+2z.x1n2onr6.x9f619 > div > div > div > div:has-text(Follow)
 www.facebook.com##.xdt5ytf.x78zum5 > .x1ja2u2z.x1n2onr6.x9f619 > .xh8yej3.x1n2onr6.x78zum5:has-text('Suggested for you')
 
 m.facebook.com##[aria-label="reel"]:upward(2)
@@ -50,6 +52,13 @@ m.facebook.com##[aria-posinset] [aria-label="See all"][href="/friends/"]:upward(
 m.facebook.com##[aria-posinset] [aria-label="See more groups"][href="/groups/discover/"]:upward([aria-posinset])
 ! Reels and short videos
 m.facebook.com##[aria-posinset] [aria-label="See more"][href="/reel/?s=ifu_see_more"]:upward([aria-posinset])
+
 ! Suggested pages
-m.facebook.com##[aria-posinset] [aria-label="Suggested pages"]:upward([aria-posinset])
+m.facebook.com##[aria-posinset] [aria-label="Suggested pages"]:upward([aria-posinswww.facebook.com##div.m.bg-s26.vertically-snappable:nth-of-type(3) > .m.bg-s26 > div.m:nth-of-type(4) > .inline-video-container > video
+www.facebook.com##div.m.bg-s26.vertically-snappable:nth-of-type(3) > .m.bg-s26 > div.m:nth-of-type(4) > .inline-video-container
+www.facebook.com##.m.vscroller.vscroller-snap.vscroller-snap-start.disable-virtualization.force-reset-scroll-height
+
+m.facebook.com##div.m.bg-s26.vertically-snappable:nth-of-type(3) > .m.bg-s26 > div.m:nth-of-type(4) > .inline-video-container > video
+m.facebook.com##div.m.bg-s26.vertically-snappable:nth-of-type(3) > .m.bg-s26 > div.m:nth-of-type(4) > .inline-video-container
+m.facebook.com##.m.vscroller.vscroller-snap.vscroller-snap-start.disable-virtualization.force-reset-scroll-Sugget])
 
