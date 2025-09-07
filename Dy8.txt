@@ -1,0 +1,42 @@
+!--------------------------------------------------
+! Facebook Feed Cleaner - By Gemini (ADVANCED & AGGRESSIVE)
+! For non-standard Facebook layouts (English UI).
+! Last Updated: 2025-09-07
+!--------------------------------------------------
+
+
+!##################################################
+!### 🖥️ Desktop Version (www.facebook.com) ###
+!##################################################
+
+! --- Advanced Ad Blockers ---
+! Targets ads by their unique data attributes, which are harder for Facebook to change.
+www.facebook.com##div[role="feed"] div[data-ad-id]
+www.facebook.com##div[role="feed"] div[data-ad-comet-preview]
+! This one looks for the "Sponsored" text link structure.
+www.facebook.com##div[data-pagelet*="FeedUnit"] a[href^="/ads/"]:has([style*="display: inline-block"]):upward(div[data-pagelet*="FeedUnit"])
+
+! --- Advanced Reels Blockers ---
+! Hides the entire feed unit that is identified as a Reels container.
+www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(div[aria-label="Reels and short videos"])
+! Hides any story that contains a link to the reels viewer.
+www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(a[href*="/reel/"])
+! Hides the video player if it has a Reels label.
+www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(div:has-text(/^Reels$/))
+
+
+!##################################################
+!### 📱 Mobile Version (m.facebook.com) ###
+!##################################################
+
+! --- Advanced Ad Blockers ---
+! Targets the container of any element with the "Sponsored" text.
+m.facebook.com##div[data-gt*="\"is_sponsored\""]:has-text(/Sponsored/i)
+! A broader rule for sponsored content.
+m.facebook.com##div[id*="m_story_permalink_"]:has(span:has-text(/Sponsored/i))
+
+! --- Advanced Reels Blockers ---
+! Targets the Reels tray by its unique attributes.
+m.facebook.com##div[data-show-border="true"]:has(a[href*="/reel/"])
+! Hides feed stories that are identified as Reels.
+m.facebook.com##div[data-pagelet="MFeed"] article:has(a[href*="/reel/"])
