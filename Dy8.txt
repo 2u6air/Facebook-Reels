@@ -1,6 +1,7 @@
 !--------------------------------------------------
-! Facebook Feed Cleaner - By Gemini (ADVANCED & AGGRESSIVE)
-! For non-standard Facebook layouts (English UI).
+! Facebook Feed Cleaner - By Gemini (FINAL & STRICTEST VERSION)
+! Using broad and aggressive rules for non-standard layouts.
+! This is the final attempt with a pre-made list.
 ! Last Updated: 2025-09-07
 !--------------------------------------------------
 
@@ -9,34 +10,49 @@
 !### 🖥️ Desktop Version (www.facebook.com) ###
 !##################################################
 
-! --- Advanced Ad Blockers ---
-! Targets ads by their unique data attributes, which are harder for Facebook to change.
-www.facebook.com##div[role="feed"] div[data-ad-id]
-www.facebook.com##div[role="feed"] div[data-ad-comet-preview]
-! This one looks for the "Sponsored" text link structure.
-www.facebook.com##div[data-pagelet*="FeedUnit"] a[href^="/ads/"]:has([style*="display: inline-block"]):upward(div[data-pagelet*="FeedUnit"])
+! Hide Sponsored Posts / Ads
+! This is a very aggressive rule that hides any feed post containing common ad-related links or labels.
+www.facebook.com##div[role="feed"] > div:has(a[href*="/ads/"])
+www.facebook.com##div[role="feed"] > div:has(span:has-text(/^Sponsored|مُموَّل$/i))
+www.facebook.com##div[role="feed"] > div:has(div[data-ad-id])
 
-! --- Advanced Reels Blockers ---
-! Hides the entire feed unit that is identified as a Reels container.
-www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(div[aria-label="Reels and short videos"])
-! Hides any story that contains a link to the reels viewer.
-www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(a[href*="/reel/"])
-! Hides the video player if it has a Reels label.
-www.facebook.com##div[data-pagelet^="FeedUnit_"]:has(div:has-text(/^Reels$/))
+! Hide Reels and Short Videos
+! This aggressively hides any feed post that contains a link to a Reel or is labeled as a Reels container.
+www.facebook.com##div[role="feed"] > div:has(a[href*="/reel/"])
+www.facebook.com##div[role="feed"] > div:has(div[aria-label*="Reels"])
+www.facebook.com##div[aria-label="Reels tray"]
+
+! Hide "Suggested for you" posts
+www.facebook.com##div[role="feed"] > div:has(span:has-text(/Suggested for you|اقتراح لك/i))
+
+! Hide "People You May Know"
+www.facebook.com##div[role="feed"] > div:has(a[href^="/friends/center/suggestions/"])
+www.facebook.com##div[role="feed"] > div:has(h3 span:has-text(/People You May Know|أشخاص قد تعرفهم/i))
+
+! Hide Suggested groups
+www.facebook.com##div[role="feed"] > div:has(h3 span:has-text(/Suggested groups|مجموعات مقترحة/i))
 
 
 !##################################################
 !### 📱 Mobile Version (m.facebook.com) ###
 !##################################################
 
-! --- Advanced Ad Blockers ---
-! Targets the container of any element with the "Sponsored" text.
-m.facebook.com##div[data-gt*="\"is_sponsored\""]:has-text(/Sponsored/i)
-! A broader rule for sponsored content.
-m.facebook.com##div[id*="m_story_permalink_"]:has(span:has-text(/Sponsored/i))
+! Hide Sponsored Posts / Ads
+! Aggressively targets story containers with any sponsorship indicators.
+m.facebook.com##article:has(span:has-text(/Sponsored|مُموَّل/i))
+m.facebook.com##div[data-pagelet="MFeed"] > div:has(span:has-text(/Sponsored|مُموَّل/i))
+m.facebook.com##div[data-gt*="\"is_sponsored\""]
 
-! --- Advanced Reels Blockers ---
-! Targets the Reels tray by its unique attributes.
-m.facebook.com##div[data-show-border="true"]:has(a[href*="/reel/"])
-! Hides feed stories that are identified as Reels.
-m.facebook.com##div[data-pagelet="MFeed"] article:has(a[href*="/reel/"])
+! Hide Reels and Short Videos
+! Hides the Reels tray and any story in the feed linking to a Reel.
+m.facebook.com##article:has(a[href*="/reel/"])
+m.facebook.com##div[data-pagelet="MFeed"] > div:has(a[href*="/reel/"])
+m.facebook.com##div[data-module-id="FeedSeeAllReelsRow"]
+
+! Hide "Suggested for you" posts
+m.facebook.com##article:has(span:has-text(/Suggested for you|اقتراح لك/i))
+m.facebook.com##div[data-pagelet="MFeed"] > div:has(span:has-text(/Suggested for you|اقتراح لك/i))
+
+! Hide "People You May Know"
+m.facebook.com##div[data-module-id="PYMK_MOBILE_FEED"]
+m.facebook.com##div[data-pagelet="MFeed"] > div:has(a[href^="/friends/center/suggestions/"])
